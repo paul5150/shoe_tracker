@@ -12,7 +12,7 @@
 
 <ul>
   <% @shoes.each do |shoe| %>
-  <li><a href="/shoes/<%= shoe.id() %>"><%= shoe.name() %></a></li>
+  <li><a href="/shoes/<%= shoe.id() %>"><%= shoe.brand() %></a></li>
   <% end %>
 </ul>
 <% else %>
@@ -27,7 +27,7 @@
 
 <ul>
   <% @stores.each do |store| %>
-  <li><a href="/stores/<%= store.id() %>"><%= store.location() %></a></li>
+  <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
   <% end %>
 </ul>
 <% else %>
