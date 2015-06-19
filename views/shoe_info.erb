@@ -31,8 +31,8 @@
 <p>There are no stores yet!</p>
 <% end %>
 <hr>
-<h4>Your store name sucks ass!  Change it now:</h4>
-<a href="/shoes/<%= @shoe.id() %>/edit">Last chance.</a>
+<h4>Your shoe isn't selling! Rename and charge more!:</h4>
+<a href="/shoes/<%= @shoe.id() %>/edit">Change name.</a>
 
 
 
@@ -40,7 +40,7 @@
 
 <hr>
 
-<h4>Your shoe sucks!  DELETE!!</h4>
+<h4>Your shoe is terrible!  DELETE!!</h4>
 <form action="/shoes/<%= @shoe.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
