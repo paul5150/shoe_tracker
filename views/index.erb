@@ -4,6 +4,7 @@
 <p><a href="/stores">Add a new store</a></p>
 <p><a href="/shoes">Add a new shoe</a></p>
 
+<hr>
 
 <h3>Here are all the shoes in this database:</h3>
 
@@ -19,11 +20,12 @@
 <p>There are no shoes added yet!</p>
 <% end %>
 
+<hr>
 
 <h3>Here are all the stores in this database:</h3>
 
 <% if @stores.any?() %>
-<p>Click on a store to see information about it and mark which shoes were in it:</p>
+<p>Click on a store to see information about it and see which shoes are in it:</p>
 
 <ul>
   <% @stores.each do |store| %>

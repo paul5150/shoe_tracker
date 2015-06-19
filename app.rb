@@ -20,19 +20,25 @@ end
 
 post("/shoes") do
   brand = params.fetch("brand")
-  shoe = Shoe.new({:brand => brand, :id => nil})
-  shoe.save()
+  @shoe = Shoe.new({:brand => brand, :id => nil})
   @shoes = Shoe.all()
-  erb(:shoes)
-end
+    if @shoe.save()
+      redirect back
+    else
+      erb(:errors)
+    end
+  end
 
 post("/stores") do
   name = params.fetch("name")
-  store = Store.new({:name => name, :id => nil})
-  store.save()
+  @store = Store.new({:name => name, :id => nil})
   @stores = Store.all()
-  erb(:stores)
-end
+    if @store.save()
+      redirect back
+    else
+      erb(:store_error)
+    end
+  end
 
 get("/shoes/:id") do
   @shoe = Shoe.find(params.fetch("id").to_i())
@@ -87,10 +93,13 @@ patch("/shoes/:id/edit") do
   brand = params.fetch("brand")
   shoe_id = params.fetch("id").to_i()
   @shoe = Shoe.find(shoe_id)
-  @shoe.update({:brand => brand})
   @stores = Store.all()
-  redirect("/")
-end
+    if @shoe.update({:brand => brand})
+      redirect("/")
+    else
+      erb(:errors)
+    end
+  end
 
 get("/stores/:id/edit") do
   @store = Store.find(params.fetch("id").to_i())
@@ -101,7 +110,10 @@ patch("/stores/:id/edit") do
   name = params.fetch("name")
   store_id = params.fetch("id").to_i()
   @store = Store.find(store_id)
-  @store.update({:name => name})
   @stores = Store.all()
-  redirect("/")
-end
+    if @store.update({:name => name})
+      redirect("/")
+    else
+      erb(:store_error)
+    end
+  end

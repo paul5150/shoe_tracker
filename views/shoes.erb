@@ -1,5 +1,7 @@
 <h1>Welcome to the Shoe page</h1>
 
+<hr>
+
 <p>Add an shoe to the database:</p>
 
 <form action="/shoes" method="post">
@@ -9,6 +11,7 @@
   <button type="submit" class="btn btn-info">Add shoe</button>
 </form>
 
+<hr>
 
 <% if @shoes.any?() %>
 <p>Click on an shoe to see information about them and to assign them to different venues:</p>
@@ -21,6 +24,8 @@
 <% else %>
 <p>There are no shoes added yet!</p>
 <% end %>
+
+<hr>
 
 <p><a href="/stores">See all stores</a></p>
 
